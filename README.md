@@ -119,13 +119,12 @@ OIBSIP/
 ---
 
 ## 🎯 Key Learnings
-
-* ✔ Machine Learning model building
-* ✔ Model deployment using Flask
-* ✔ Data preprocessing & feature engineering
-* ✔ NLP techniques (Tokenization, TF-IDF)
-* ✔ End-to-end project development
-
+*  Model deployment using Flask
+*  Data preprocessing & feature engineering
+*  NLP techniques (Tokenization, TF-IDF)
+- Model built using Machine Learning
+- Web interface for user interaction
+- End-to-end working project
 ---
 
 ## 🚀 Future Enhancements
