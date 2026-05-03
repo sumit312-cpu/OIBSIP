@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>🚗 Car Price Predictor</h1>
+
+<!--Single Car Section -->
+<div class="box">
+
+    <h2>Single Car</h2>
+
+    <form method="POST">
+        <input type="number" name="year" placeholder="Model Year" required>
+        <input type="number" name="km" placeholder="KM Driven" required>
+
+        <select name="fuel">
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <h2 class="result">₹ {{ "{:,}".format(prediction) }}</h2>
+    {% endif %}
+
+    {% if car_image %}
+    <img src="{{ url_for('static', filename=car_image) }}" class="car-img">
+    {% endif %}
+
+</div>
+
+
+<!-- Compare Section -->
+<div class="box">
+
+    <h2>Compare Cars</h2>
+
+    <form action="/compare" method="POST">
+
+        <h3>Car A</h3>
+        <input type="number" name="yearA" placeholder="Year" required>
+        <input type="number" name="kmA" placeholder="KM" required>
+        <select name="fuelA">
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+        </select>
+
+        <h3>Car B</h3>
+        <input type="number" name="yearB" placeholder="Year" required>
+        <input type="number" name="kmB" placeholder="KM" required>
+        <select name="fuelB">
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+        </select>
+
+        <button type="submit">Compare</button>
+    </form>
+
+    {% if priceA %}
+    <div class="result-box">
+
+        <p><strong>Car A:</strong> ₹ {{ "{:,}".format(priceA) }}</p>
+        <p><strong>Car B:</strong> ₹ {{ "{:,}".format(priceB) }}</p>
+
+        <h3 class="winner">{{ better }} offers better value 🚗</h3>
+
+    </div>
+    {% endif %}
+
+</div>
+
+
+<!--  Graph Section -->
+{% if graph %}
+<div class="box">
+    <h2>📊 Price vs KM Graph</h2>
+    <img src="{{ url_for('static', filename=graph) }}" class="graph-img">
+</div>
+{% endif %}
+
+
+</body>
+</html>

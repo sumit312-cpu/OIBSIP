@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #fbd3e9, #bb377d);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Card UI */
+.container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #fff5f8;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Button */
+button {
+    background: pink;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* 🌸 Falling animation */
+.flowers span {
+    position: absolute;
+    font-size: 20px;
+    animation: fall 10s linear infinite;
+}
+
+.flowers span:nth-child(1){left:10%; animation-duration:5s;}
+.flowers span:nth-child(2){left:30%; animation-duration:7s;}
+.flowers span:nth-child(3){left:50%; animation-duration:6s;}
+.flowers span:nth-child(4){left:70%; animation-duration:8s;}
+.flowers span:nth-child(5){left:90%; animation-duration:5s;}
+
+@keyframes fall {
+    0% {top: -10%;}
+    100% {top: 110%;}
+}

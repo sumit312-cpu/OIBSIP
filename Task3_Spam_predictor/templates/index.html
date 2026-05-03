@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Spam Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+    <h1>📧 Email Spam Detection</h1>
+
+    <form action="/predict" method="post">
+        <textarea name="message" placeholder="Enter email..."></textarea><br>
+        <button type="submit" class="add">Add Mail</button>
+    </form>
+
+    <a href="/clear">
+        <button class="clear">Clear All</button>
+    </a>
+
+    <hr>
+
+    <h3>📥 Inbox ({{ inbox|length }})</h3>
+    {% for msg in inbox %}
+        <div class="card safe">{{ msg }}<br>Safe</div>
+    {% endfor %}
+
+    <h3>🚨 Spam ({{ spam|length }})</h3>
+    {% for msg in spam %}
+        <div class="card spam">{{ msg }}<br>Spam</div>
+    {% endfor %}
+</div>
+</body>
+</html>
